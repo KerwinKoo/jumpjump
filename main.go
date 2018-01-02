@@ -17,8 +17,6 @@ import (
 	"github.com/pquerna/ffjson/ffjson"
 )
 
-// game start point :224 614 color is 13364,13621,15163
-
 // JumpDirect jump direct type define
 type JumpDirect string
 
@@ -68,9 +66,6 @@ var (
 
 	SpringGrayColorValue = 54227
 
-	// 60909,54227,54741
-	SpiritColor *StaticRGBA
-
 	SpiritColorColorRList []*StaticRGBA
 )
 
@@ -82,14 +77,13 @@ var (
 )
 
 func init() {
-	SpiritColor = &StaticRGBA{
-		R: 52,
-		G: 53,
-		B: 59,
-	}
 
 	SpiritColorColorRList = []*StaticRGBA{
-		SpiritColor,
+		&StaticRGBA{
+			R: 52,
+			G: 53,
+			B: 59,
+		},
 		&StaticRGBA{
 			R: 52,
 			G: 52,
@@ -448,7 +442,7 @@ func main() {
 					return false
 				}
 
-				log.Printf("script start point in off directory [%d:%d]\n", scriptStartPoint.X, scriptStartPoint.Y)
+				log.Printf("spirit start point in off directory [%d:%d]\n", scriptStartPoint.X, scriptStartPoint.Y)
 				nextJP = GetPointOfDirectoion(pngRetRGBA, (-1)*JumpDirIntMap[nextJDir])
 
 				if nextJP == nil {
@@ -468,7 +462,7 @@ func main() {
 			}
 		} else {
 			getStartPointSucceed = true
-			log.Printf("script start point [%d:%d]\n", scriptStartPoint.X, scriptStartPoint.Y)
+			log.Printf("spirit start point [%d:%d]\n", scriptStartPoint.X, scriptStartPoint.Y)
 		}
 
 		var saltValue float64
